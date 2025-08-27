@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sysnet Global Technologies - Company Policy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+        }
+
+        .company-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            overflow-y: auto;
+            max-height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .search-container {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 30px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding-left: 40px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 30px;
+            top: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .policy-menu {
+            list-style: none;
+        }
+
+        .policy-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .policy-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .policy-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 2rem;
+        }
+
+        .policy-link.active {
+            background: var(--secondary);
+            border-left: 4px solid white;
+        }
+
+        .policy-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .policy-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .policy-section:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .policy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .policy-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .policy-number {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .policy-content h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light);
+        }
+
+        .policy-content p {
+            margin-bottom: 1rem;
+        }
+
+        .definition-list {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .definition-item {
+            margin-bottom: 0.8rem;
+            display: flex;
+        }
+
+        .definition-term {
+            font-weight: bold;
+            min-width: 120px;
+        }
+
+        .category-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .category-table th, .category-table td {
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            text-align: left;
+        }
+
+        .category-table th {
+            background: var(--primary);
+            color: white;
+        }
+
+        .category-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: fixed;
+                z-index: 999;
+                height: 100vh;
+                transform: translateX(-100%);
+                max-height: 100vh;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .sidebar-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .main-content {
+                margin-top: 60px;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .policy-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .policy-number {
+                margin-top: 1rem;
+            }
+
+            .definition-item {
+                flex-direction: column;
+            }
+
+            .definition-term {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="search-container">
+                <div style="position: relative;">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-box" placeholder="Search policies...">
+                </div>
+            </div>
+
+            <ul class="policy-menu">
+                <li class="policy-item"><a href="#hiring" class="policy-link active"><i class="fas fa-user-plus"></i> Hiring Process</a></li>
+                <li class="policy-item"><a href="#induction" class="policy-link"><i class="fas fa-user-graduate"></i> Induction Process</a></li>
+                <li class="policy-item"><a href="#referral" class="policy-link"><i class="fas fa-users"></i> Employee Referral</a></li>
+                <li class="policy-item"><a href="#conveyance" class="policy-link"><i class="fas fa-car"></i> Conveyance Policy</a></li>
+                <li class="policy-item"><a href="#travel" class="policy-link"><i class="fas fa-plane"></i> Domestic Travel</a></li>
+                <li class="policy-item"><a href="#leave" class="policy-link"><i class="fas fa-calendar-alt"></i> Leave Policy</a></li>
+                <li class="policy-item"><a href="#job-posting" class="policy-link"><i class="fas fa-briefcase"></i> Internal Job Posting</a></li>
+                <li class="policy-item"><a href="#disciplinary" class="policy-link"><i class="fas fa-gavel"></i> Disciplinary Procedures</a></li>
+                <li class="policy-item"><a href="#assets" class="policy-link"><i class="fas fa-laptop"></i> Use of Company Assets</a></li>
+                <li class="policy-item"><a href="#harassment" class="policy-link"><i class="fas fa-ban"></i> Prevention from Harassment</a></li>
+                <li class="policy-item"><a href="#dress-code" class="policy-link"><i class="fas fa-tshirt"></i> Dress Code</a></li>
+                <li class="policy-item"><a href="#separation" class="policy-link"><i class="fas fa-door-open"></i> Employee Separation</a></li>
+                <li class="policy-item"><a href="#office-time" class="policy-link"><i class="fas fa-clock"></i> Office Timing Policy</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="logo-container">
+                    <div class="logo">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="company-name">Sysnet Global Technologies Pvt Ltd</div>
+                </div>
+                <div class="header-content">
+                    <h1>Company Policy Document</h1>
+                    <p>Comprehensive guide to company policies and procedures</p>
+                </div>
+            </header>
+
+            <section id="definitions" class="policy-section">
+                <div class="policy-header">
+                    <h2 class="policy-title">Definitions</h2>
+                </div>
+                <div class="policy-content">
+                    <div class="definition-list">
+                        <div class="definition-item">
+                            <span class="definition-term">MD</span>
+                            <span class="definition-desc">- Managing Director</span>
+                        </div>
+                        <div class="definition-item">
+                            <span class="definition-term">MC</span>
+                            <span class="definition-desc">- Managing Cadre</span>
+                        </div>
+                        <div class="definition-item">
+                            <span class="definition-term">NM</span>
+                            <span class="definition-desc">- Non Managers</span>
+                        </div>
+                        <div class="definition-item">
+                            <span class="definition-term">HOD</span>
+                            <span class="definition-desc">- Refers to the Head of Department as designated or as appointed to carry out duties of the department</span>
+                        </div>
+                        <div class="definition-item">
+                            <span class="definition-term">HRO</span>
+                            <span class="definition-desc">- Human Resource Operations</span>
+                        </div>
+                        <div class="definition-item">
+                            <span class="definition-term">HR-R</span>
+                            <span class="definition-desc">- Human Resources Recruitment</span>
+                        </div>
+                        <div class="definition-item">
+                            <span class="definition-term">HR-O</span>
+                            <span class="definition-desc">- Human Resources Operations</span>
+                        </div>
+                        <div class="definition-item">
+                            <span class="definition-term">RM</span>
+                            <span class="definition-desc">- Reporting Manager</span>
+                        </div>
+                        <div class="definition-item">
+                            <span class="definition-term">HO</span>
+                            <span class="definition-desc">- Head Office</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="class-definition" class="policy-section">
+                <div class="policy-header">
+                    <h2 class="policy-title">Class Definition</h2>
+                </div>
+                <div class="policy-content">
+                    <table class="category-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Range of Salary (CTC)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Class I</td>
+                                <td>Up to 17,000/-</td>
+                            </tr>
+                            <tr>
+                                <td>Class II</td>
+                                <td>17,001 to 25,000/-</td>
+                            </tr>
+                            <tr>
+                                <td>Class III</td>
+                                <td>25,001 to 40,000/-</td>
+                            </tr>
+                            <tr>
+                                <td>Class IV</td>
+                                <td>40,001 to 75,000/-</td>
+                            </tr>
+                            <tr>
+                                <td>Class V</td>
+                                <td>75,001 to 1,50,000/-</td>
+                            </tr>
+                            <tr>
+                                <td>Class VI</td>
+                                <td>150,001 to 2,00,000/-</td>
+                            </tr>
+                            <tr>
+                                <td>Class VII</td>
+                                <td>2,00,001 to 3,00,000/-</td>
+                            </tr>
+                            <tr>
+                                <td>Class VIII</td>
+                                <td>Unclassified</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="hiring" class="policy-section">
+                <div class="policy-header">
+                    <h2 class="policy-title">Hiring Process</h2>
+                    <span class="policy-number">Process No. - Sysnet/HR/01</span>
+                </div>
+                <div class="policy-content">
+                    <h3>1. Objective</h3>
+                    <p>To identify and recruit competent candidates in the given role vacancies in order to have the best employees working for the company.</p>
+                    
+                    <h3>2. Guiding Principles</h3>
+                    <p>• Growth of the organization is expected to place demand to hire for new and different roles.</p>
+                    <p>• Hiring is and will continue to be an important activity in the company and will be undertaken with utmost diligence and seriousness. Time and effort will be spent in identifying appropriate role and organization fitment.</p>
+                    <p>• Effort should be made to ensure a positive experience for every candidate during the selection and hiring process, with intent to establish Sysnet as a desirable Recruiter Brand in the minds of the candidates.</p>
+                    <p>• Sysnet wishes to employ credible & competent people with high integrity as its employees.</p>
+                    
+                    <h3>3. Process</h3>
+                    <p>i. Manpower Budgeting</p>
+                    <p>a. Organization wide annual budgeting exercise, will be held by 25th March every year, during which the Business Heads will also freeze on the manpower budgets and identify the new role vacancies required during the year with an indication of when they are required to be filled. New project manpower requirement may be taken up as and when a new project is received. Man power requirements need to be budgeted before the start of the project. Replacement requirements can be given anytime during the year. This data will be provided to HR-R for subsequent action.</p>
+                    <p>b. All recruitment requisition (new and replacement) should be given to HR-R after due approvals from HOD along with the filled Manpower Requisition Form.</p>
+                    <p>c. Response time will be measured from the time of approval of the requisition of the vacancy to date of issuing the Offer Letter.</p>
+                    
+                    <p>ii. Sourcing & Selection</p>
+                    <p>a. HR-R will identify candidates appropriate for the given role through a source deemed appropriate (advertisements, databanks, job websites, recruitment agencies, referrals etc.) and call them for the selection process.</p>
+                    <p>b. HR-R to inform recruiting managers in advance of the selection process schedules.</p>
+                    <p>c. Candidates will be put through a selection process consisting of tests, and at least 2 levels of interviews or a panel interview as deemed fit for the role for which selection is being made. Attempt should be made to organize panel interview with representation from HR-R, Department Head and the Reporting Manager as it will save time for the organization as well as the candidate and makes decision making faster.</p>
+                    <p>d. Selection process should be engineered to assess not just the candidate's technical and functional capability/competence but also an overall company and cultural fit.</p>
+                    <p>e. Selection proceedings for each candidate appearing for the selection process must be documented and signed by the respective interviewer and all the documentation preserved by HR-R.</p>
+                    
+                    <h3>iv. Reference Checks</h3>
+                    <p>a. Sysnet believes in a mutually satisfactory association with each of its employees and therefore believes in complete background verification before on-boarding a new employee into the organization.</p>
+                    <p>b. Sysnet will carry out at least 2 reference checks from the previous employers of the candidate, including the latest organization, where the reference check will be done after the candidate has resigned. The certificates provided by the candidate will also be verified.</p>
+                    <p>c. Its HRR's responsibility to ensure that the reference checks are completed as a part of the process for every new hire, before joining. This verification may be done by the organization internally or may be outsourced to another organization providing such a service.</p>
+                    <p>d. In case, the reference check is being done internally, HRR can also have the Reporting Manager do the reference calls, especially for senior level hires.</p>
+                    <p>e. Candidates will be requested to provide contact details (including official landline numbers and email ids) of their previous and current Reporting Managers. However organization can call on numbers from their own database rather than the ones provided by the candidate for authentication.</p>
+                </div>
+            </section>
+
+            <!-- Additional policy sections would follow the same structure -->
+            <!-- For brevity, I'm including just one full policy section -->
+
+            <section id="induction" class="policy-section">
+                <div class="policy-header">
+                    <h2 class="policy-title">Induction Process</h2>
+                    <span class="policy-number">Process No. - Sysnet/HR/03</span>
+                </div>
+                <div class="policy-content">
+                    <h3>1. Objective</h3>
+                    <p>The purpose of this policy is to introduce the new employee to the organization and its working Environment, quickly through an organized, consistent and systematic induction, so that the new joinee becomes a part of the organization and contributes effectively and productively as early as possible.</p>
+                    
+                    <h3>2. Eligibility</h3>
+                    <p>All new joinees.</p>
+                    
+                    <h3>3. Process</h3>
+                    <p>1. HR-R to confirm the joining of a new employee 1 days prior, by calling him/her and also giving him/her details of information ie address ,concern person etc.</p>
+                    <p>2. HR-R to confirm employee's joining to Admin Dept/ Reporting Manager/designated mentor from the business.</p>
+                    <p>3. HR- R will design and schedule a companywide induction programme and provide prior information to each candidate and manager. HR-R is responsible for ensuring a comprehensive and complete induction programme for the new hire.</p>
+                    <p>a. Introduce all departments and key functions in the organization including an overview of his/her Own department and team.</p>
+                    <p>b. HR-R will conduct the Induction session to introduce him/her to all policies procedures and general working standards.</p>
+                    <p>c. For remote locations, HR-R should send a suggested Induction program design to the Regional Manager and Branch Head to book representatives internally, and schedule induction for each new joinee on weekly basis on Wednesday & Friday.</p>
+                    <p>d. 3 days induction is mandatory for every new joiner, without Induction will not report at branch/project /client site. One week Induction is required for Sr. Manager & above.</p>
+                </div>
+            </section>
+
+            <!-- More sections would be added here for each policy -->
+
+            <footer>
+                <p>Sysnet Global Technologies Pvt Ltd - Company Policy Document</p>
+                <p>© 2023 All Rights Reserved</p>
+            </footer>
+        </main>
+    </div>
+
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar on mobile
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+
+            // Back to top button
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.policy-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close sidebar on mobile after clicking a link
+                    if (window.innerWidth < 992) {
+                        sidebar.classList.remove('active');
+                    }
+                    
+                    // Update active link
+                    document.querySelectorAll('.policy-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Search functionality
+            const searchBox = document.querySelector('.search-box');
+            
+            searchBox.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                document.querySelectorAll('.policy-section').forEach(section => {
+                    const sectionText = section.textContent.toLowerCase();
+                    if (sectionText.includes(searchTerm)) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
